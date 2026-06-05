@@ -10,6 +10,9 @@ services:
     container_name: openwa-api
     ports:
       - '2785:2785'
+    networks:
+      - openwa-network
+      - dokploy-network
     environment:
       - NODE_ENV=development
       - PORT=2785
@@ -52,7 +55,13 @@ services:
     depends_on:
       - openwa
     restart: unless-stopped
+    networks:
+      - openwa-network
+      - dokploy-network
 
 networks:
-  default:
+  openwa-network:
     name: openwa-network
+  dokploy-network:
+    external: true
+    name: dokploy-network
