@@ -50,8 +50,7 @@ services:
     ports:
       - '2886:80'
     depends_on:
-      openwa:
-        condition: service_healthy
+      - openwa
     restart: unless-stopped
 
 networks:
