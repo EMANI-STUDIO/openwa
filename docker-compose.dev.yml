@@ -11,7 +11,7 @@ services:
     ports:
       - '2785:2785'
     networks:
-      - openwa-network
+      - default
       - dokploy-network
     environment:
       - NODE_ENV=development
@@ -56,11 +56,11 @@ services:
       - openwa
     restart: unless-stopped
     networks:
-      - openwa-network
+      - default
       - dokploy-network
 
 networks:
-  openwa-network:
+  default:
     name: openwa-network
   dokploy-network:
     external: true
